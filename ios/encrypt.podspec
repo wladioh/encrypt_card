@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = 'https://github.com/RubenSolAlva/encrypt_card'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'RubenSolAlva' }
+  s.author           = 'RubenSolAlva'
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
