@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
-import 'package:encrypt/encrypt.dart';
+import 'package:encrypt/encrypt_card.dart';
 
 void main() => runApp(MyApp());
 

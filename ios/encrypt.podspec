@@ -3,7 +3,7 @@
 # Run `pod lib lint encrypt.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'encrypt'
+  s.name             = 'encrypt_card'
   s.version          = '0.0.1'
   s.summary          = 'An Adyen Flutter plugin to support the Adyen API integration inspired in adyen_flutter https://github.com/lab-box/adyen_flutter.'
   s.description      = <<-DESC
