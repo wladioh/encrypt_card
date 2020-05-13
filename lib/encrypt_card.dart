@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 
-class Encrypt {
+class EncryptCard {
   static const MethodChannel _channel = const MethodChannel('encrypt_flutter');
 
   /// Encrypts Card information into a single token after requesting a public token from your [publicKeyToken].

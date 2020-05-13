@@ -1,5 +1,5 @@
-name: encrypt_example
-description: Demonstrates how to use the encrypt plugin.
+name: encrypt_card_example
+description: Demonstrates how to use the encrypt_card plugin.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -11,14 +11,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  encrypt_card:
+    # When depending on this package from a real application you should use:
+    #   encrypt_card: ^x.y.z
+    # See https://dart.dev/tools/pub/dependencies#version-constraints
+    # The example app is bundled with the plugin so we use a path dependency on
+    # the parent directory to use the current plugin's version. 
+    path: ../
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-    
-  encrypt_card:
-    path: ../
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

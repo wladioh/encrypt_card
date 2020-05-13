@@ -1,3 +1,7 @@
+## 0.0.3
+
+* New package name
+
 ## 0.0.2
 
 * iOS bug fixed 

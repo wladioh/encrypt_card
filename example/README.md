@@ -1,6 +1,6 @@
-# encrypt_example
+# encrypt_card_example
 
-Demonstrates how to use the encrypt plugin.
+Demonstrates how to use the encrypt_card plugin.
 
 ## Getting Started
 

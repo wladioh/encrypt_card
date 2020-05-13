@@ -2,10 +2,10 @@ import Flutter
 import UIKit
 import Adyen
 
-public class SwiftEncryptPlugin: NSObject, FlutterPlugin {
+public class SwiftEncryptCardPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "encrypt_flutter", binaryMessenger: registrar.messenger())
-        let instance = SwiftEncryptPlugin()
+        let instance = SwiftEncryptCardPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     

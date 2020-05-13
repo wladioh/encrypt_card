@@ -1,4 +1,4 @@
-package com.solalva.encrypt.encrypt_example;
+package com.solalva.encrypt_card.encrypt_card_example;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

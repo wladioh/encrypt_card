@@ -1,10 +1,10 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint encrypt.podspec' to validate before publishing.
+# Run `pod lib lint encrypt_card.podspec' to validate before publishing.
 #
 Pod::Spec.new do |s|
   s.name             = 'encrypt_card'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'An Adyen Flutter plugin to support the Adyen API integration inspired in adyen_flutter https://github.com/lab-box/adyen_flutter.'
   s.description      = <<-DESC
   An Adyen Flutter plugin to support the Adyen API integration inspired in adyen_flutter https://github.com/lab-box/adyen_flutter.
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
   s.dependency 'Adyen/Card', '~> 2.7.2'
+  s.platform = :ios, '8.0'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }

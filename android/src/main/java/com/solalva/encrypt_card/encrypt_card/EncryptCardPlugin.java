@@ -1,4 +1,4 @@
-package com.solalva.encrypt.encrypt;
+package com.solalva.encrypt_card.encrypt_card;
 
 import androidx.annotation.NonNull;
 
@@ -27,11 +27,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 
-/** EncryptPlugin */
-public class EncryptPlugin implements MethodCallHandler {
+/** EncryptCardPlugin */
+public class EncryptCardPlugin implements MethodCallHandler {
   private final Activity activity;
 
-  private EncryptPlugin(Activity activity) {
+  private EncryptCardPlugin(Activity activity) {
       this.activity = activity;
   }
 
@@ -40,7 +40,7 @@ public class EncryptPlugin implements MethodCallHandler {
    */
   public static void registerWith(Registrar registrar) {
       final MethodChannel channel = new MethodChannel(registrar.messenger(), "encrypt_flutter");
-      channel.setMethodCallHandler(new EncryptPlugin(registrar.activity()));
+      channel.setMethodCallHandler(new EncryptCardPlugin(registrar.activity()));
   }
 
   @Override

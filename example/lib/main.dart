@@ -112,7 +112,7 @@ class _AppCardValidatorState extends State<AppCardValidator> {
                 RaisedButton(
                   onPressed: () async {
                     FocusScope.of(context).requestFocus(new FocusNode());
-                    var encryptedCard = await Encrypt.encryptedCard(
+                    var encryptedCard = await EncryptCard.encryptedCard(
                         publicKeyToken: token,
                         environment: Environment.TEST,
                         card: CreditCard(

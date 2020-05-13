@@ -1,4 +1,4 @@
-# encrypt_card
+# encrypt
 
 An Adyen Flutter plugin to support the Adyen API integration inspired in adyen_flutter https://github.com/lab-box/adyen_flutter.
 

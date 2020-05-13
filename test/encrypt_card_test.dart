@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('encrypt');
+  const MethodChannel channel = MethodChannel('encrypt_card');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -17,6 +17,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    //expect(await Encrypt.platformVersion, '42');
+    //expect(await EncryptCard.platformVersion, '42');
   });
 }

@@ -1,4 +1,4 @@
-group 'com.solalva.encrypt.encrypt'
+group 'com.solalva.encrypt_card.encrypt_card'
 version '1.0-SNAPSHOT'
 
 buildscript {
