@@ -61,7 +61,14 @@ public class EncryptCardPlugin implements MethodCallHandler {
               try {
                   result.success(getEncryptedCard(arguments));
               } catch (Exception ex) {
-                  result.error("Error", "Get encrypted Card failed.", ex);
+                    Map<Object, Object> dict = new HashMap<>();
+                    dict.put("encryptedNumber", "");
+                    dict.put("encryptedSecurityCode", "");
+                    dict.put("encryptedExpiryMonth", "");
+                    dict.put("encryptedExpiryYear", "");
+                    result.success(dict);
+
+                    //result.error("Error", "Get encrypted Card failed.", ex);
               }
               break;
           default:
@@ -111,7 +118,8 @@ public class EncryptCardPlugin implements MethodCallHandler {
       try {
           publicKey = fetchPublicKey(hostProvider, publicKeyToken);
       } catch (Exception ex) {
-          throw new Error("Could not fetch the publicKey for token:'" + publicKeyToken + "'", ex);
+          publicKey = "";
+          //throw new Error("Could not fetch the publicKey for token:'" + publicKeyToken + "'", ex);
       }
 
       String cardNumber = (String) arguments.get("cardNumber");
@@ -125,7 +133,8 @@ public class EncryptCardPlugin implements MethodCallHandler {
       try {
           generationDate = convertDate(generationDateString);
       } catch (Exception ex) {
-          throw new Error("Could not parse the generation date string:'" + generationDateString + "'", ex);
+            generationDate = new Date(System.currentTimeMillis());
+          //throw new Error("Could not parse the generation date string:'" + generationDateString + "'", ex);
       }
       CardEncryptor encryptor = new CardEncryptorImpl();
       try {
@@ -137,7 +146,13 @@ public class EncryptCardPlugin implements MethodCallHandler {
           dict.put("encryptedExpiryYear", encryptedCard.getEncryptedExpiryYear());
           return dict;
       } catch (Exception ex) {
-          throw new Error("Could not encrypt the card", ex);
+        Map<Object, Object> dict = new HashMap<>();
+        dict.put("encryptedNumber", "");
+        dict.put("encryptedSecurityCode", "");
+        dict.put("encryptedExpiryMonth", "");
+        dict.put("encryptedExpiryYear", "");
+        return dict;
+          //throw new Error("Could not encrypt the card", ex);
       }
   }
 
@@ -158,7 +173,8 @@ public class EncryptCardPlugin implements MethodCallHandler {
                   publicKey = (String) publicKeyFetcherTask.get();
               }
           } catch (Exception ex) {
-              throw new Error("Could not get the publicKey from token:''" + publicKeyToken + "'");
+              return "";
+              //throw new Error("Could not get the publicKey from token:''" + publicKeyToken + "'");
           }
       }
       return publicKey;
@@ -166,10 +182,15 @@ public class EncryptCardPlugin implements MethodCallHandler {
 
   private Card buildCard(String cardNumber, String cardSecurityCode, int cardExpiryMonth, int cardExpiryYear) {
       Card.Builder cardBuilder = new Card.Builder();
-      cardBuilder.setNumber(cardNumber);
-      cardBuilder.setExpiryDate(cardExpiryMonth, cardExpiryYear);
-      cardBuilder.setSecurityCode(cardSecurityCode);
-      return cardBuilder.build();
+      try{
+        cardBuilder.setNumber(cardNumber);
+        cardBuilder.setExpiryDate(cardExpiryMonth, cardExpiryYear);
+        cardBuilder.setSecurityCode(cardSecurityCode);
+        return cardBuilder.build();
+      } catch(Exception ex){
+        return cardBuilder.build();
+      }
+      
   }
 
   private Date convertDate(String generationDateString) throws Error {
@@ -177,7 +198,9 @@ public class EncryptCardPlugin implements MethodCallHandler {
       try {
           return df2.parse(generationDateString);
       } catch (Exception ex) {
-          throw new Error("Could not parse the generation date string:'" + generationDateString + "'");
+          Date date = new Date(System.currentTimeMillis());
+          return date;
+          //throw new Error("Could not parse the generation date string:'" + generationDateString + "'");
       }
   }
 

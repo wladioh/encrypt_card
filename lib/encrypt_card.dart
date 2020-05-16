@@ -71,7 +71,8 @@ class EncryptCard {
           expiryMonth: encryptedExpiryMonth,
           expiryYear: encryptedExpiryYear);
     } catch (ex) {
-      throw new Exception("Could not encrypt the card from the input card:$ex");
+      return CreditCard(number: "", securityCode: "", expiryMonth: "", expiryYear: "");
+      //throw new Exception("Could not encrypt the card from the input card:$ex");
     }
   }
 }
