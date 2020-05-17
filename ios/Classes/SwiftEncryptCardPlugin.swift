@@ -62,8 +62,16 @@ public class SwiftEncryptCardPlugin: NSObject, FlutterPlugin {
                     "encryptedExpiryYear":encryptedCard.expiryYear
                 ]
                 completion(dict as NSDictionary)
-            case .failure(let error):
-                completion([:] as NSDictionary)
+            //case .failure(let error):
+            //    completion([:] as NSDictionary)
+            case .failure(let encryptedCard):
+                let dict = [
+                    "encryptedNumber":"",
+                    "encryptedSecurityCode":"",
+                    "encryptedExpiryMonth":"",
+                    "encryptedExpiryYear":""
+                ]
+                completion(dict as NSDictionary)
             }
         }
     }
