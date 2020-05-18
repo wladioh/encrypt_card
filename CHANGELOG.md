@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Return coid credit card if error. 
+
 ## 0.0.3
 
 * New package name
