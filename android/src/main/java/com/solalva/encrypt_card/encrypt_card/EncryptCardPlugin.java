@@ -61,14 +61,7 @@ public class EncryptCardPlugin implements MethodCallHandler {
               try {
                   result.success(getEncryptedCard(arguments));
               } catch (Exception ex) {
-                    Map<Object, Object> dict = new HashMap<>();
-                    dict.put("encryptedNumber", "");
-                    dict.put("encryptedSecurityCode", "");
-                    dict.put("encryptedExpiryMonth", "");
-                    dict.put("encryptedExpiryYear", "");
-                    result.success(dict);
-
-                    //result.error("Error", "Get encrypted Card failed.", ex);
+                    result.error("Error", "Get encrypted Card failed.", ex);
               }
               break;
           default:
@@ -118,8 +111,7 @@ public class EncryptCardPlugin implements MethodCallHandler {
       try {
           publicKey = fetchPublicKey(hostProvider, publicKeyToken);
       } catch (Exception ex) {
-          publicKey = "";
-          //throw new Error("Could not fetch the publicKey for token:'" + publicKeyToken + "'", ex);
+         throw new Error("Could not fetch the publicKey for token:'" + publicKeyToken + "'", ex);
       }
 
       String cardNumber = (String) arguments.get("cardNumber");
@@ -146,13 +138,7 @@ public class EncryptCardPlugin implements MethodCallHandler {
           dict.put("encryptedExpiryYear", encryptedCard.getEncryptedExpiryYear());
           return dict;
       } catch (Exception ex) {
-        Map<Object, Object> dict = new HashMap<>();
-        dict.put("encryptedNumber", "");
-        dict.put("encryptedSecurityCode", "");
-        dict.put("encryptedExpiryMonth", "");
-        dict.put("encryptedExpiryYear", "");
-        return dict;
-          //throw new Error("Could not encrypt the card", ex);
+          throw new Error("Could not encrypt the card", ex);
       }
   }
 
@@ -173,8 +159,8 @@ public class EncryptCardPlugin implements MethodCallHandler {
                   publicKey = (String) publicKeyFetcherTask.get();
               }
           } catch (Exception ex) {
-              return "";
-              //throw new Error("Could not get the publicKey from token:''" + publicKeyToken + "'");
+              //return "";
+              throw new Error("Could not get the publicKey from token:''" + publicKeyToken + "'");
           }
       }
       return publicKey;
